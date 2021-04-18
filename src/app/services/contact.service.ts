@@ -132,10 +132,14 @@ export class ContactService {
   private _contacts$ = new BehaviorSubject<Contact[]>([])
   public contacts$ = this._contacts$.asObservable()
 
+  private _filterBy$ = new BehaviorSubject({ term: '' })
+  public filterBy$ = this._filterBy$.asObservable()
+
   constructor() {
   }
 
-  public query(filterBy = null): void {
+  public query(): void {
+    const filterBy = this._filterBy$.getValue()
     let contacts = this._contactsDb;
     if (filterBy && filterBy.term) {
       contacts = this._filter(contacts, filterBy.term)
@@ -143,7 +147,12 @@ export class ContactService {
     this._contacts$.next(this._sort(contacts))
   }
 
-  public getContactById(id: string): Observable<Contact> {
+  public setFilter(filterBy) {
+    this._filterBy$.next(filterBy)
+    this.query()
+  }
+
+  public getById(id: string): Observable<Contact> {
     //mock the server work
     const contact = this._contactsDb.find(contact => contact._id === id)
 

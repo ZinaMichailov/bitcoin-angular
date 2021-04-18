@@ -1,1 +1,13 @@
-<p>home-page works!</p>
+<section [users]="users$|async">
+    <div *ngFor="let contact of contacts;" [user]="user">
+        <h2>Hello {{users.name}}!</h2>
+        <div className="flex">
+            <img src="../../../assets/img/coins.png" alt="" />
+            <div>Coins: {{users.coins}}</div>
+        </div>
+        <div className="flex">
+            <img src="../../../assets/img/bitcoin.png" alt="" />
+            <!-- <div>BTC: {{this.rateFormatted}}</div> -->
+        </div>
+    </div>
+</section>

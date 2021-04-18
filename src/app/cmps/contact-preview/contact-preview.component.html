@@ -1,4 +1,4 @@
 <article class="contact-preview" (click)="onSelectContact.emit(contact._id)">
-    <img ng-src="https://i.pravatar.cc/150?u={{contact._id}}" alt="" />
+    <img [src]="'https://i.pravatar.cc/150?u=' + contact._id" alt="contact" />
     <h4>{{contact.name}}</h4>
 </article>

@@ -1,13 +1,13 @@
-<section class="pet-app">
-    <h1>Pet Shop</h1>
-  
-    <div *ngIf="!selectedPetId;else petDetails">
-      <contact-filter></contact-filter>
-      <contact-list [pets]="pets$|async" (onSelectPet)="selectedPetId=$event"></contact-list>
-    </div>
-  
-    <ng-template #contactDetails>
-      <contact-details (onBack)="selectedContactId=null" [selectedContactId]="selectedContactId"></contact-details>
-    </ng-template>
-  
-  </section>
+<section class="contact-app">
+  <h1>Contact Shop</h1>
+
+  <div *ngIf="!selectedContactId;else contactDetails">
+    <!-- <contact-filter></contact-filter> -->
+    <contact-list [contacts]="contacts$|async" (onSelectContact)="selectedContactId=$event"></contact-list>
+  </div>
+
+  <ng-template #contactDetails>
+    <contact-details (onBack)="selectedContactId=null" [selectedContactId]="selectedContactId"></contact-details>
+  </ng-template>
+
+</section>
