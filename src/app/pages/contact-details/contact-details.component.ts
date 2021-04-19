@@ -13,6 +13,8 @@ import { ContactService } from '../../services/contact.service';
   styleUrls: ['./contact-details.component.scss']
 })
 export class ContactDetailsComponent implements OnInit {
+  @Output() onTransfer = new EventEmitter()
+
   loggedinUser: User
   contact: Contact
   movesForContact: any
