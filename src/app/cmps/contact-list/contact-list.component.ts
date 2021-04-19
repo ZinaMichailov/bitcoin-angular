@@ -8,7 +8,6 @@ import { Contact } from '../../models/contact.model';
 })
 export class ContactListComponent implements OnInit {
   @Input() contacts: Contact[]
-  @Output() onSelectContact = new EventEmitter<string>()
 
   constructor() { }
 

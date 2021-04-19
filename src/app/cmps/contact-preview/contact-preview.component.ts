@@ -8,10 +8,9 @@ import { Contact } from '../../models/contact.model';
 })
 export class ContactPreviewComponent implements OnInit {
   @Input() contact: Contact
-  @Output() onSelectContact = new EventEmitter<string>()
+
   constructor() { }
 
   ngOnInit(): void {
   }
-
 }

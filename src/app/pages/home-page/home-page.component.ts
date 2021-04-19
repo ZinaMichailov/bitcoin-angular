@@ -10,12 +10,14 @@ import { UserService } from '../../services/user.service';
 })
 export class HomePageComponent implements OnInit {
   users$: Observable<User[]>
+  user: User
 
   constructor(private userService: UserService) { }
 
   ngOnInit(): void {
     this.userService.query()
     this.users$ = this.userService.users$
+    // this.user = 
   }
 
 }

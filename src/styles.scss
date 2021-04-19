@@ -1,1 +1,68 @@
-/* You can add global styles to this file, and also import other style files */
+$clr1: #0077b6;
+$clr2: #f0f5f9;
+$clr3: #000c3e;
+$clr4: #60adf1;
+$clr5: #42b983;
+$clr6: #a9d6f6;
+
+* {
+	box-sizing: border-box;
+	
+}
+
+html {
+	line-height: 1.6;
+}
+
+body {
+	margin: 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	margin: 0 0 1rem;
+	font-weight: 500;
+}
+
+p {
+	max-width: 48ch;
+	margin: 0;
+}
+
+img {
+	width: 100%;
+}
+
+i {
+	font-size: 18px;
+}
+
+i:hover {
+	opacity: 0.7;
+}
+
+a {
+	text-decoration: none;
+	color: inherit;
+}
+
+// a:active {
+// 	color: inherit;
+// }
+
+.btn {
+	background-color: #0077b6;
+	color: #f0f5f9;
+	border: 1px solid #0077b6;
+	border-radius: 2px;
+	padding: 5px 10px;
+
+	&:hover {
+		background-color: #f0f5f9;
+		color: #0077b6;
+	}
+}

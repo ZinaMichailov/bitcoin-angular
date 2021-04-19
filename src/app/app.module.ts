@@ -1,5 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { FormsModule } from '@angular/forms';
+import { AppRoutingModule } from './app-routing.module';
 
 import { AppComponent } from './app.component';
 import { ContactFilterComponent } from './cmps/contact-filter/contact-filter.component';
@@ -10,6 +12,7 @@ import { ContactEditComponent } from './pages/contact-edit/contact-edit.componen
 import { ContactAppComponent } from './pages/contact-app/contact-app.component';
 import { HomePageComponent } from './pages/home-page/home-page.component';
 import { AppHeaderComponent } from './cmps/app-header/app-header.component';
+import { StatisticPageComponent } from './pages/statistic-page/statistic-page.component';
 
 @NgModule({
   declarations: [
@@ -21,10 +24,13 @@ import { AppHeaderComponent } from './cmps/app-header/app-header.component';
     ContactEditComponent,
     ContactAppComponent,
     HomePageComponent,
-    AppHeaderComponent
+    AppHeaderComponent,
+    StatisticPageComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    FormsModule,
+    AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,7 +1,7 @@
 <section class="contact-details">
     <div class="actions">
-        <div (click)="onBack.emit()"><img src="../../../assets/img/back.png" alt=""></div>
-        <div><img src="../../../assets/img/edit.png" alt=""></div>
+        <a routerLink="/contact"><img src="../../../assets/img/back.png" alt=""></a>
+        <a [routerLink]="['/edit',contact._id]"><img src="../../../assets/img/edit.png" alt=""></a>
     </div>
     <img [src]="'https://i.pravatar.cc/150?u=' + contact._id" alt="contact" />
     <h3>{{contact.name}}</h3>

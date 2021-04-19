@@ -1,8 +1,5 @@
 <section class="contact-list">
-    <contact-preview 
-        *ngFor="let contact of contacts;" 
-        [trackBy]="trackByFn" 
-        [contact]="contact"
-        (onSelectContact)="onSelectContact.emit($event)"
-    ></contact-preview>
+    <a *ngFor="let contact of contacts;" [trackBy]="trackByFn" [routerLink]="['/contact',contact._id]">
+        <contact-preview [contact]="contact"></contact-preview>
+    </a>
 </section>

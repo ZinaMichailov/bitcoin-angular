@@ -11,7 +11,6 @@ import { ContactService } from '../../services/contact.service';
 export class ContactAppComponent implements OnInit {
 
   contacts$: Observable<Contact[]>
-  selectedContactId: string
 
   constructor(private contactService: ContactService) { }
 
@@ -19,5 +18,4 @@ export class ContactAppComponent implements OnInit {
     this.contactService.query()
     this.contacts$ = this.contactService.contacts$
   }
-
 }

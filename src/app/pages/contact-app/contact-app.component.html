@@ -1,13 +1,7 @@
 <section class="contact-app">
-  <h1>Contact Shop</h1>
+  <contact-filter></contact-filter>
+  <contact-list [contacts]="contacts$|async"></contact-list>
+  <!-- <a routerLink="/edit">Add Contact</a> -->
 
-  <div *ngIf="!selectedContactId;else contactDetails">
-    <!-- <contact-filter></contact-filter> -->
-    <contact-list [contacts]="contacts$|async" (onSelectContact)="selectedContactId=$event"></contact-list>
-  </div>
-
-  <ng-template #contactDetails>
-    <contact-details (onBack)="selectedContactId=null" [selectedContactId]="selectedContactId"></contact-details>
-  </ng-template>
-
+  <router-outlet></router-outlet>
 </section>

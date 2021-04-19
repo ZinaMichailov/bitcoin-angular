@@ -1,4 +1,5 @@
 import { Component, OnInit, EventEmitter, Input, Output } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Observable, Subscription } from 'rxjs';
 import { Contact } from '../../models/contact.model';
 import { ContactService } from '../../services/contact.service';
@@ -10,16 +11,17 @@ import { ContactService } from '../../services/contact.service';
 })
 export class ContactDetailsComponent implements OnInit {
   @Input() selectedContactId: string
-  @Output() onBack = new EventEmitter()
 
   contact: Contact
   subscription: Subscription
 
-  constructor(private contactService: ContactService) { }
+  constructor(private contactService: ContactService, private route: ActivatedRoute, private router: Router) { }
 
   ngOnInit(): void {
-    this.subscription = this.contactService.getById(this.selectedContactId).subscribe(contact => {
-      this.contact = contact
+    console.log(this.route.data);
+    this.subscription = this.route.data.subscribe(data => {
+      
+      this.contact = data.contact
     })
   }
 
