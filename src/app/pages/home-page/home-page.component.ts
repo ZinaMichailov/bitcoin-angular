@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Observable, Subscription } from 'rxjs';
 import { User } from '../../models/user.model';
 import { UserService } from '../../services/user.service';
+import { BitcoinService } from 'src/app/services/bitcoin.service';
 
 @Component({
   selector: 'home-page',
@@ -11,13 +12,22 @@ import { UserService } from '../../services/user.service';
 export class HomePageComponent implements OnInit {
   users$: Observable<User[]>
   user: User
+  rate: any
+  subscription: Subscription
 
-  constructor(private userService: UserService) { }
+  constructor(private userService: UserService, private bitcoinService: BitcoinService) { }
 
-  ngOnInit(): void {
+  async ngOnInit(): Promise<void> {
     this.userService.query()
     this.users$ = this.userService.users$
-    // this.user = 
-  }
+    this.subscription = this.users$.subscribe(users => {
+      this.user = users[0]
+    })
 
+    const rate = await this.bitcoinService.getRate(this.user.coins)
+    this.rate = rate.toLocaleString('en-US', {
+      style: 'currency',
+      currency: 'USD',
+    })
+  }
 }
