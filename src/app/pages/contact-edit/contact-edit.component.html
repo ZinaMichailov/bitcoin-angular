@@ -1,1 +1,23 @@
-<p>contact-edit works!</p>
+<section class="contact-edit">
+    <div class="actions">
+        <a routerLink="/contact"><img src="../../../assets/img/back.png" alt=""></a>
+        <button *ngIf="contact._id" (click)="onRemoveContact()"><img src="../../../assets/img/delete.png" alt="" /></button>
+    </div>
+    <h1 *ngIf="contact._id">Edit contact</h1>
+    <h1 *ngIf="!contact._id">Add contact</h1>
+    <form (submit)="onSaveContact()">
+        <div>
+            <label for="name">Name:</label>
+            <input required type="text" id="name" name="name" [(ngModel)]="contact.name" />
+        </div>
+        <div>
+            <label for="email">Email:</label>
+            <input required type="email" id="email" name="email" [(ngModel)]="contact.email" />
+        </div>
+        <div>
+            <label for="phone">Phone:</label>
+            <input required type="text" id="phone" name="phone" [(ngModel)]="contact.phone" />
+        </div>
+        <button class="btn save-btn">Save</button>
+    </form>
+</section>

@@ -1,11 +1,16 @@
 <section class="home-page">
-    <h2>Hello {{user.name}}!</h2>
-    <div class="flex">
-        <img src="../../../assets/img/coins.png" alt="" />
-        <div>Coins: {{user.coins}}</div>
+    <div *ngIf="loggedinUser" class="user-container">
+        <h2>Hello {{loggedinUser.name}}!</h2>
+        <div class="flex">
+            <img src="../../../assets/img/bitcoin.png" alt="" />
+            <div>Coins: {{loggedinUser.coins}}</div>
+        </div>
+        <div class="flex">
+            <img src="../../../assets/img/coins.png" alt="" />
+            <div>BTC: {{rate}}</div>
+        </div>
     </div>
-    <div class="flex">
-        <img src="../../../assets/img/bitcoin.png" alt="" />
-        <div>BTC: {{rate}}</div>
+    <div *ngIf="!loggedinUser" class="signup-btn">
+        <a routerLink="/signup" class="btn">Login / Sign Up</a>
     </div>
 </section>

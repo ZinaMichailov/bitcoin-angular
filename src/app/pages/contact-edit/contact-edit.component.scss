@@ -1,0 +1,40 @@
+.contact-edit {
+    text-align: center;
+    padding-top: 30px;
+
+    h1 {
+        margin-bottom: 30px;
+    }
+
+    form > * {
+        margin-bottom: 20px;
+        display: flex;
+        justify-content: center;
+    }
+
+    label {
+        margin-right: 10px;
+    }
+
+    .save-btn {
+        display: block;
+        margin: 30px auto;
+    }
+
+    .actions {
+        margin: 30px auto;
+        width: 400px;
+        display: flex;
+        justify-content: space-between;
+
+        img {
+            width: 25px;
+        }
+
+        button {
+            background-color: inherit;
+            border: none;
+            cursor: pointer;
+        }
+    }
+}

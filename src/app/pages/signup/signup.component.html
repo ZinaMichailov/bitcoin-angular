@@ -1,0 +1,25 @@
+<section class="sign-up">
+    <div *ngIf="!loggedinUser">
+        <form class="login" (submit)="onLogin()">
+            <label for="email">Enter your email:</label>
+            <input type="email" id="email" name="email" [(ngModel)]="loginCred.email" />
+            <label for="password">Enter your password:</label>
+            <input type="text" id="password" name="password" [(ngModel)]="loginCred.password" />
+            <button class="btn">Login</button>
+        </form>
+        <hr />
+        <form class="sign-up" (submit)="onSignup()">
+            <label for="name">Enter your full name:</label>
+            <input type="text" id="name" name="name" [(ngModel)]="singupCred.name" />
+            <label for="email">Enter your email:</label>
+            <input type="email" id="email" name="email" [(ngModel)]="singupCred.email" />
+            <label for="password">Enter your password:</label>
+            <input type="text" id="password" name="password" [(ngModel)]="singupCred.password" />
+            <button class="btn">Sing up</button>
+        </form>
+    </div>
+    <div *ngIf="loggedinUser" class="logout">
+        <h2>Hi! {{loggedinUser.name}}</h2>
+        <button class="btn" (click)="onLogout()">Logout</button>
+    </div>
+</section>

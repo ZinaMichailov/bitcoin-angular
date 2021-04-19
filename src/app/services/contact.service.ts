@@ -126,7 +126,6 @@ const CONTACTS = [
 })
 export class ContactService {
 
-  //mock the server
   private _contactsDb: Contact[] = CONTACTS;
 
   private _contacts$ = new BehaviorSubject<Contact[]>([])
@@ -152,37 +151,33 @@ export class ContactService {
     this.query()
   }
 
-  public getById(id: string): Observable<Contact> {
-    //mock the server work
-    const contact = this._contactsDb.find(contact => contact._id === id)
+  public getEmptyContact() {
+    return { name: '', email: '', phone: '' }
+  }
 
-    //return an observable
+  public getById(id: string): Observable<Contact> {
+    const contact = this._contactsDb.find(contact => contact._id === id)
     return contact ? of({...contact}) : Observable.throw(`Contact id ${id} not found!`)
   }
 
-  public deleteContact(id: string) {
-    //mock the server work
+  public remove(id: string) {
     this._contactsDb = this._contactsDb.filter(contact => contact._id !== id)
-
-    // change the observable data in the service - let all the subscribers know
     this._contacts$.next(this._contactsDb)
   }
 
-  public saveContact(contact: Contact) {
+  public save(contact: Contact) {
     return contact._id ? this._updateContact(contact) : this._addContact(contact)
   }
 
   private _updateContact(contact: Contact) {
-    //mock the server work
     this._contactsDb = this._contactsDb.map(c => contact._id === c._id ? contact : c)
-    // change the observable data in the service - let all the subscribers know
     this._contacts$.next(this._sort(this._contactsDb))
   }
 
   private _addContact(contact: Contact) {
-    //mock the server work
-    const newContact = new Contact(contact.name, contact.email, contact.phone);
-    newContact.setId();
+    contact._id = this._makeId()
+    const newContact = new Contact(contact._id , contact.name, contact.email, contact.phone);
+    // newContact.setId();    
     this._contactsDb.push(newContact)
     this._contacts$.next(this._sort(this._contactsDb))
   }
@@ -207,5 +202,14 @@ export class ContactService {
         contact.phone.toLocaleLowerCase().includes(term) ||
         contact.email.toLocaleLowerCase().includes(term)
     })
+  }
+
+  private _makeId(length = 7) {
+    var text = "";
+    var possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+    for (var i = 0; i < length; i++) {
+      text += possible.charAt(Math.floor(Math.random() * possible.length));
+    }
+    return text;
   }
 }

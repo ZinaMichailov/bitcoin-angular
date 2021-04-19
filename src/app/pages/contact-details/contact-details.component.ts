@@ -22,8 +22,7 @@ export class ContactDetailsComponent implements OnInit {
     // this.subscription = this.route.data.subscribe(data => {
     //   this.contact = data.contact
     // })
-
-    this.route.snapshot.params.id
+    
     this.subscription = this.route.params.pipe(
       mergeMap(params => this.contactService.getById(params.id))
     ).subscribe(contact => {

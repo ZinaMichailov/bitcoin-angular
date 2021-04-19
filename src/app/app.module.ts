@@ -13,6 +13,7 @@ import { ContactAppComponent } from './pages/contact-app/contact-app.component';
 import { HomePageComponent } from './pages/home-page/home-page.component';
 import { AppHeaderComponent } from './cmps/app-header/app-header.component';
 import { StatisticPageComponent } from './pages/statistic-page/statistic-page.component';
+import { SignupComponent } from './pages/signup/signup.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { StatisticPageComponent } from './pages/statistic-page/statistic-page.co
     ContactAppComponent,
     HomePageComponent,
     AppHeaderComponent,
-    StatisticPageComponent
+    StatisticPageComponent,
+    SignupComponent
   ],
   imports: [
     BrowserModule,
