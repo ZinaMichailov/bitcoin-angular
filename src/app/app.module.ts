@@ -14,6 +14,9 @@ import { HomePageComponent } from './pages/home-page/home-page.component';
 import { AppHeaderComponent } from './cmps/app-header/app-header.component';
 import { StatisticPageComponent } from './pages/statistic-page/statistic-page.component';
 import { SignupComponent } from './pages/signup/signup.component';
+import { TransferFundComponent } from './cmps/transfer-fund/transfer-fund.component';
+import { MoveListComponent } from './cmps/move-list/move-list.component';
+import { MovePreviewComponent } from './cmps/move-preview/move-preview.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +30,10 @@ import { SignupComponent } from './pages/signup/signup.component';
     HomePageComponent,
     AppHeaderComponent,
     StatisticPageComponent,
-    SignupComponent
+    SignupComponent,
+    TransferFundComponent,
+    MoveListComponent,
+    MovePreviewComponent
   ],
   imports: [
     BrowserModule,
