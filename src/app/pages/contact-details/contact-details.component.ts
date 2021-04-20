@@ -13,8 +13,6 @@ import { ContactService } from '../../services/contact.service';
   styleUrls: ['./contact-details.component.scss']
 })
 export class ContactDetailsComponent implements OnInit {
-  @Output() onTransfer = new EventEmitter()
-
   loggedinUser: User
   contact: Contact
   movesForContact: any
@@ -36,6 +34,12 @@ export class ContactDetailsComponent implements OnInit {
     this.loggedinUser = this.userService.getLoggedInUser()
     if (!this.loggedinUser) return this.movesForContact = null
     this.movesForContact = this.loggedinUser.moves.filter(move => move.toId === this.route.snapshot.params.id)
+  }
+
+  onTransfer(ev) {
+    this.userService.addMove(this.contact, ev.target.amount.value)
+    ev.target.amount.value = null
+    this.loggedinUser = this.userService.getLoggedInUser()
   }
 
   ngOnDestroy() {

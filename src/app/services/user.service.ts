@@ -39,7 +39,7 @@ export class UserService {
     }
 
     public login(loginCred) {
-        const user = USERS.find(user => user.email === loginCred.email && user.password === loginCred.password)
+        const user = this._usersDb.find(user => user.email === loginCred.email && user.password === loginCred.password)
         return this._saveLocalUser(user)
     }
 
@@ -64,16 +64,17 @@ export class UserService {
     }
 
     public addMove(contact, amount) {
-        // const loggedinUser = this.getLoggedInUser();
-        // let userIdx = USERS.findIndex(user => user.email === loggedinUser.email)
-        // let move = this.getEmptyUserMove()
-        // move.toId = contact._id
-        // move.to = contact.name
-        // move.amount = parseInt(amount)
-        // USERS[userIdx].moves.push(move)
-        // USERS[userIdx].coins -= amount
-        // storageService.store(USER_KEY, this._usersDb)
-        // return USERS[userIdx]
+        const loggedinUser = this.getLoggedInUser();
+        let userIdx = this._usersDb.findIndex(user => user.email === loggedinUser.email)
+        
+        let move = this.getEmptyUserMove()
+        move.toId = contact._id
+        move.to = contact.name
+        move.amount = parseInt(amount) 
+        this._usersDb[userIdx].moves.push(move)
+        this._usersDb[userIdx].coins -= amount
+        storageService.store(USER_KEY, this._usersDb)
+        this._users$.next(this._usersDb)
     }
 
     public getEmptyUserMove() {
@@ -81,7 +82,7 @@ export class UserService {
             toId: '',
             to: '',
             at: Date.now(),
-            amount: ''
+            amount: null
         }
     }
 

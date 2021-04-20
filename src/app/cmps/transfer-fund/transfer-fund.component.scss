@@ -1,0 +1,13 @@
+.transfer-fund {
+    margin: 40px auto;
+
+    h3 {
+        text-align: center;
+    }
+
+    form {
+        > *:not(:last-child) {
+            margin-inline-end: 7px;
+        }
+    }
+}

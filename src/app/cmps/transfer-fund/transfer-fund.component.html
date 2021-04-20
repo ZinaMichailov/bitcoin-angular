@@ -1,8 +1,8 @@
-<section>
-    <!-- <h4>Transfer coins to {contact.name}</h4>
-    <form (submit)="onTransfer()">
+<section class="transfer-fund">
+    <h3>Transfer coins to {{contact.name}}:</h3>
+    <form (submit)="onTransfer.emit($event)">
         <label for="amount">Amount:</label>
-        <input type="number" id="amount" name="amount" [(ngModel)]="amount" />
+        <input type="number" id="amount" name="amount" />
         <button class="btn">Transfer</button>
-    </form> -->
+    </form>
 </section>
