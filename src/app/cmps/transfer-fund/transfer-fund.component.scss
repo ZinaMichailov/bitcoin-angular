@@ -1,13 +1,26 @@
 .transfer-fund {
-    margin: 40px auto;
+  margin: 40px auto;
+  background-color: #008e9b;
+  border-radius: 5px;
+  padding: 15px 0;
 
-    h3 {
-        text-align: center;
+  h3 {
+    text-align: center;
+    margin-block-end: 20px;
+  }
+
+  form {
+    text-align: center;
+
+    > *:not(:last-child) {
+      margin-inline-end: 10px;
     }
 
-    form {
-        > *:not(:last-child) {
-            margin-inline-end: 7px;
-        }
+    input {
+      border-radius: 10px;
+      border: 1px solid #d8d8d8;
+      padding: 5px;
+      background-color: inherit;
     }
+  }
 }

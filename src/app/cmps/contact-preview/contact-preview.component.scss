@@ -1,23 +1,21 @@
 .contact-preview {
-	background-color: #008e9b;
-	width: 150px;
-	height: 200px;
-	border: 2px solid #bdbcbc;
-	border-radius: 5px;
-	display: flex;
-	flex-direction: column;
-	justify-content: space-around;
-	padding: 10px;
-	margin: 10px;
-	text-align: center;
-	cursor: pointer;
+	align-items: center;
+	margin-block-end: 20px;
+	background-color: #ebebeb;
+	border-radius: 20px;
+	padding: 5px 15px;
+
+	h4 {
+		margin: 0;
+	}
 
 	&:hover {
 		opacity: 0.8;
 	}
 
 	img {
-		width: 70px;
-        margin: 0 auto;
+		width: 50px;
+        margin-inline-end: 30px;
+		border-radius: 50%;
 	}
 }

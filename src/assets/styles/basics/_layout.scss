@@ -1,0 +1,25 @@
+.main-layout {
+    max-width: 450px;
+    margin: 0 auto;
+    
+	@media screen and (max-width: 560px) {
+		max-width: 350px;
+	}
+
+	@media screen and (max-width: 400px) {
+		max-width: 250px;
+	}
+}
+
+.main-content {
+	min-width: 450px;
+    margin: 0 auto;
+
+	@media screen and (max-width: 560px) {
+		min-width: 350px;
+	}
+
+	@media screen and (max-width: 400px) {
+		min-width: 250px;
+	}
+}

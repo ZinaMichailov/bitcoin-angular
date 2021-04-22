@@ -1,4 +1,4 @@
-<section class="contact-list">
+<section class="contact-list flex-col main-layout">
     <a *ngFor="let contact of contacts;" [trackBy]="trackByFn" [routerLink]="['/contact',contact._id]">
         <contact-preview [contact]="contact"></contact-preview>
     </a>

@@ -3,17 +3,23 @@
     padding-top: 30px;
 
     h1 {
-        margin-bottom: 30px;
+        margin-block-end: 30px;
     }
 
     form > * {
-        margin-bottom: 20px;
-        display: flex;
+        margin-block-end: 20px;
         justify-content: center;
     }
 
     label {
         margin-right: 10px;
+    }
+
+    input {
+        padding: 7px;
+        border-radius: 10px;
+        border: 1px solid #d8d8d8;
+        width: 220px;
     }
 
     .save-btn {
@@ -23,9 +29,6 @@
 
     .actions {
         margin: 30px auto;
-        width: 400px;
-        display: flex;
-        justify-content: space-between;
 
         img {
             width: 25px;

@@ -1,12 +1,12 @@
 <section class="home-page">
-    <div *ngIf="loggedinUser" class="user-container">
+    <div *ngIf="loggedinUser" class="user-container flex-col">
         <h2>Hello {{loggedinUser.name}}!</h2>
-        <div class="flex">
-            <img src="../../../assets/img/bitcoin.png" alt="" />
-            <div>Coins: {{loggedinUser.coins}}</div>
-        </div>
-        <div class="flex">
+        <div class="coins flex-center">
             <img src="../../../assets/img/coins.png" alt="" />
+            <div>Coins: ${{loggedinUser.coins}}</div>
+        </div>
+        <div class="btc flex-center">
+            <img src="../../../assets/img/bitcoin.png" alt="" />
             <div>BTC: {{rate}}</div>
         </div>
         <move-list [moves]="loggedinUser.moves"></move-list>

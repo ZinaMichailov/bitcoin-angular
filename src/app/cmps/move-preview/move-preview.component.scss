@@ -1,3 +1,7 @@
 .move-preview {
-    margin-bottom: 20px;
+    padding: 12px 0;
+
+    :last-child {
+        margin: 0;
+    }
 }
