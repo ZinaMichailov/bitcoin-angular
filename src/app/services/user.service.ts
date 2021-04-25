@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Observable, BehaviorSubject, of } from 'rxjs';
+import { Move } from '../models/move.model';
 import { User } from '../models/user.model';
 import { storageService } from './storage.service.js';
 
@@ -78,23 +79,14 @@ export class UserService {
     public addMove(contact, amount) {
         const loggedinUser = this.getLoggedInUser();
         let userIdx = this._usersDb.findIndex(user => user.email === loggedinUser.email)
+        amount = parseInt(amount)
 
-        let move = this.getEmptyUserMove()
-        move.toId = contact._id
-        move.to = contact.name
-        move.amount = parseInt(amount)
-        this._usersDb[userIdx].moves.push(move)
-        this._usersDb[userIdx].coins -= amount
-        storageService.store(USER_KEY, this._usersDb)
-        this._users$.next(this._usersDb)
-    }
-
-    public getEmptyUserMove() {
-        return {
-            toId: '',
-            to: '',
-            at: Date.now(),
-            amount: null
+        if (loggedinUser.coins >= amount) {
+            const move: Move = { toId: contact._id, to: contact.name, at: Date.now(), amount }
+            this._usersDb[userIdx].moves = [...this._usersDb[userIdx].moves, move]
+            this._usersDb[userIdx].coins -= amount
+            storageService.store(USER_KEY, this._usersDb)
+            this._users$.next(this._usersDb)
         }
     }
 
