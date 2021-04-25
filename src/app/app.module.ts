@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
+import { GoogleChartsModule } from 'angular-google-charts';
 
 import { AppComponent } from './app.component';
 import { ContactFilterComponent } from './cmps/contact-filter/contact-filter.component';
@@ -17,6 +18,7 @@ import { SignupComponent } from './pages/signup/signup.component';
 import { TransferFundComponent } from './cmps/transfer-fund/transfer-fund.component';
 import { MoveListComponent } from './cmps/move-list/move-list.component';
 import { MovePreviewComponent } from './cmps/move-preview/move-preview.component';
+import { ChartComponent } from './cmps/chart/chart.component';
 
 @NgModule({
   declarations: [
@@ -33,12 +35,14 @@ import { MovePreviewComponent } from './cmps/move-preview/move-preview.component
     SignupComponent,
     TransferFundComponent,
     MoveListComponent,
-    MovePreviewComponent
+    MovePreviewComponent,
+    ChartComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
-    AppRoutingModule
+    AppRoutingModule,
+    GoogleChartsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

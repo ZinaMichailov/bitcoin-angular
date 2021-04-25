@@ -1,0 +1,13 @@
+<section class="chart">
+    <h2 class="chart-headline">{{ title }}</h2>
+    <google-chart 
+        class="chart" 
+        [type]="type"
+        [data]="data | async" 
+        [width]="width" 
+        [height]="height"
+        [options]="options" 
+        [columns]="columnNames"
+    >
+    </google-chart>
+</section>
