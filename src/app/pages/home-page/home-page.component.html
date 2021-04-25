@@ -9,7 +9,7 @@
             <img src="../../../assets/img/bitcoin.png" alt="" />
             <div>BTC: {{rate}}</div>
         </div>
-        <move-list [moves]="loggedinUser.moves"></move-list>
+        <move-list [moves]="loggedinUser.moves" [isShowTo]="true"></move-list>
     </div>
     <div *ngIf="!loggedinUser" class="signup-btn">
         <a routerLink="/signup" class="btn">Login / Sign Up</a>

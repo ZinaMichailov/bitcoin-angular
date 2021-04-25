@@ -7,7 +7,8 @@ import { ChangeDetectionStrategy, Component, Input, OnInit } from '@angular/core
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class MovePreviewComponent implements OnInit {
-  @Input() move: any
+  @Input() move: object
+  @Input() isShowTo: boolean
 
   constructor() { }
 

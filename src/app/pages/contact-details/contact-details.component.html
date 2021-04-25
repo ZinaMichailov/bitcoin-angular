@@ -8,5 +8,5 @@
     <p>Email: {{contact.email}}</p>
     <p>Phone: {{contact.phone}}</p>
     <transfer-fund [contact]="contact" (onTransfer)="onTransfer($event)"></transfer-fund>
-    <move-list [moves]="movesForContact"></move-list>
+    <move-list [moves]="movesForContact" [isShowTo]="false"></move-list>
 </section>

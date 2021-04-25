@@ -1,6 +1,6 @@
 <div class="moves-list flex-col main-content">
     <h3>Your last moves:</h3>
     <div *ngFor="let move of moves;">
-        <move-preview [move]="move"></move-preview>
+        <move-preview [move]="move" [isShowTo]="isShowTo"></move-preview>
     </div>
 </div>
