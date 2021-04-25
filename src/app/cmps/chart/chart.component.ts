@@ -13,7 +13,7 @@ export class ChartComponent implements OnInit {
   @Input() vTitle
 
   options = {
-    colors: ['#8dd6e9'],
+    colors: ['#008e9b'],
     backgroundColor: 'transparent',
     hAxis: {
       title: 'Date'
@@ -24,7 +24,7 @@ export class ChartComponent implements OnInit {
     legend: 'left'
   }
   type = 'AreaChart'
-  width = screen.width * 0.95
+  width = screen.width * 0.8
   height = screen.width * 0.4
 
   constructor() { }
