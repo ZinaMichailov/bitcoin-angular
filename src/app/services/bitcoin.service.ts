@@ -14,7 +14,7 @@ export class BitcoinService {
         let rate = storageService.load(Rate_KEY);
         if (rate) return Promise.resolve(rate);
         const { data } = await axios.get(`https://blockchain.info/tobtc?currency=USD&value=1`);
-        rate = coins / data;
+        rate = coins * data;
         storageService.store(Rate_KEY, rate);
         return rate;
     }

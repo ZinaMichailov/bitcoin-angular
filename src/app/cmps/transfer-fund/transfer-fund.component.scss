@@ -23,4 +23,25 @@
       background-color: inherit;
     }
   }
+
+  @media screen and (max-width: 400px) {
+    h3 {
+      font-size: 15px;
+    }
+    
+		form {
+      display: flex;
+      flex-direction: column;
+
+      > *:not(:last-child) {
+        margin-inline-end: 0;
+        margin-block-end: 15px;
+      }
+
+      button {
+        width: 40%;
+        margin: 0 auto;
+      }
+    }
+	}
 }

@@ -1,22 +1,23 @@
 <section class="sign-up">
     <div *ngIf="!loggedinUser">
-        <form class="login" (submit)="onLogin()">
+        <form *ngIf="isLogin" class="login" (submit)="onLogin()">
             <label for="email">Enter your email:</label>
-            <input type="email" id="email" name="email" [(ngModel)]="loginCred.email" />
+            <input type="email" id="email" name="email" [(ngModel)]="loginCred.email" required />
             <label for="password">Enter your password:</label>
-            <input type="text" id="password" name="password" [(ngModel)]="loginCred.password" />
+            <input type="text" id="password" name="password" [(ngModel)]="loginCred.password" required />
             <button class="btn">Login</button>
         </form>
-        <hr />
-        <form class="sign-up" (submit)="onSignup()">
+        <button *ngIf="isLogin" class="btn" (click)="isLogin=false">For Sign Up</button>
+        <form *ngIf="!isLogin" class="sign-up" (submit)="onSignup()">
             <label for="name">Enter your full name:</label>
-            <input type="text" id="name" name="name" [(ngModel)]="singupCred.name" />
+            <input type="text" id="name" name="name" [(ngModel)]="singupCred.name" required />
             <label for="email">Enter your email:</label>
-            <input type="email" id="email" name="email" [(ngModel)]="singupCred.email" />
+            <input type="email" id="email" name="email" [(ngModel)]="singupCred.email" required />
             <label for="password">Enter your password:</label>
-            <input type="text" id="password" name="password" [(ngModel)]="singupCred.password" />
+            <input type="text" id="password" name="password" [(ngModel)]="singupCred.password" required />
             <button class="btn">Sing up</button>
         </form>
+        <button *ngIf="!isLogin" class="btn" (click)="isLogin=true">For Login</button>
     </div>
     <div *ngIf="loggedinUser" class="logout">
         <h2>Hi! {{loggedinUser.name}}</h2>

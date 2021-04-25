@@ -9,16 +9,14 @@ import { UserService } from 'src/app/services/user.service';
   styleUrls: ['./signup.component.scss']
 })
 export class SignupComponent implements OnInit {
-  loginCred: object
-  singupCred: object
-  loggedinUser: any
+  loginCred: object = {email: 'puki@gmail.com', password: '1234'}
+  singupCred: object = this.userService.getEmptySingUpCred()
+  loggedinUser: object = this.userService.getLoggedInUser()
+  isLogin: boolean = true
 
   constructor(public userService: UserService, private router: Router) { }
 
   ngOnInit(): void {
-    this.loggedinUser = this.userService.getLoggedInUser()
-    this.singupCred = this.userService.getEmptySingUpCred()
-    this.loginCred = {email: '', password: ''}
   }
 
   onLogin() {

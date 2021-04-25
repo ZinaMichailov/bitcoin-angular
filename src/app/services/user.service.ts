@@ -15,6 +15,18 @@ const USERS = [
                 to: 'Ochoa Hyde',
                 at: 1618056214923,
                 amount: 20
+            },
+            {
+                amount: 5,
+                at: 1619355164509,
+                to: "Dominique Soto",
+                toId: "5a566402abce24c6bfe4699d"
+            },
+            {
+                amount: 10,
+                at: 1619355991441,
+                to: "Faulkner Flores",
+                toId: "5a566402f90ae30e97f990db" 
             }
         ]
     }
@@ -66,11 +78,11 @@ export class UserService {
     public addMove(contact, amount) {
         const loggedinUser = this.getLoggedInUser();
         let userIdx = this._usersDb.findIndex(user => user.email === loggedinUser.email)
-        
+
         let move = this.getEmptyUserMove()
         move.toId = contact._id
         move.to = contact.name
-        move.amount = parseInt(amount) 
+        move.amount = parseInt(amount)
         this._usersDb[userIdx].moves.push(move)
         this._usersDb[userIdx].coins -= amount
         storageService.store(USER_KEY, this._usersDb)

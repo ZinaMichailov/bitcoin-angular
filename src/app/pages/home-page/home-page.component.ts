@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Observable, Subscription } from 'rxjs';
+import { Subscription } from 'rxjs';
 import { User } from '../../models/user.model';
 import { UserService } from '../../services/user.service';
 import { BitcoinService } from 'src/app/services/bitcoin.service';
@@ -11,7 +11,7 @@ import { BitcoinService } from 'src/app/services/bitcoin.service';
 })
 export class HomePageComponent implements OnInit {
   loggedinUser: User
-  rate: any
+  rate: number
   subscription: Subscription
 
   constructor(private userService: UserService, private bitcoinService: BitcoinService) { }
@@ -20,11 +20,6 @@ export class HomePageComponent implements OnInit {
     this.loggedinUser = this.userService.getLoggedInUser()
 
     if (!this.loggedinUser) return
-    
-    const rate = await this.bitcoinService.getRate(this.loggedinUser.coins)
-    this.rate = rate.toLocaleString('en-US', {
-      style: 'currency',
-      currency: 'USD',
-    })
+    this.rate = await this.bitcoinService.getRate(this.loggedinUser.coins)
   }
 }
