@@ -31,8 +31,7 @@ export class ChartComponent implements OnInit {
 
   ngOnInit(): void {
     this.options.vAxis.title = this.vTitle
-    console.log('data chart:', this.data);
-    
+    console.log('data chart:', this.data);    
   }
 
 }

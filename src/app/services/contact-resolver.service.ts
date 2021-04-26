@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { ActivatedRoute, ActivatedRouteSnapshot, Resolve } from '@angular/router';
+import { ActivatedRouteSnapshot, Resolve } from '@angular/router';
 import { ContactService } from './contact.service';
 
 @Injectable({

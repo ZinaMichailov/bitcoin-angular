@@ -41,13 +41,13 @@ export class BitcoinService {
 
         return this.http.get<any>('https://api.blockchain.info/charts/market-price?timespan=5months&format=json&cors=true')
             .pipe(
-                map(res => res.values.map(
-                    ({ x, y }) => {
+                map(res => {
+                    return res.values.map(({ x, y }) => {
                         return [(new Date(x * 1000).toLocaleDateString('en-US')), y]
                     }
-                )),
+                )},
                 tap(values => storageService.store(this.Market_Price_KEY, values))
-            )
+            ))
         // const { data } = await axios.get(`https://api.blockchain.info/charts/market-price?timespan=5months&format=json&cors=true`)
         // const values = data.values.map(({x, y}) => {
         //     return [(new Date(x * 1000).toLocaleDateString('en-US')), y]
@@ -63,13 +63,13 @@ export class BitcoinService {
 
         return this.http.get<any>('https://api.blockchain.info/charts/trade-volume?timespan=5months&format=json&cors=true')
             .pipe(
-                map(res => res.values.map(
-                    ({ x, y }) => {                        
+                map(res => {
+                    return res.values.map(({ x, y }) => {                        
                         return [(new Date(x * 1000).toLocaleDateString('en-US')), y]
                     }
-                )),
+                )},
                 tap(values => storageService.store(this.Confirmed_Transactions_KEY, values))
-            )
+            ))
         // const { data } = await axios.get(`https://api.blockchain.info/charts/trade-volume?timespan=5months&format=json&cors=true`)
         // const values = data.values.map(({ x, y }) => {
         //     return [(new Date(x * 1000).toLocaleDateString('en-US')), y]
