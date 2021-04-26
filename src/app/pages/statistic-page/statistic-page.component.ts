@@ -9,15 +9,19 @@ import { BitcoinService } from 'src/app/services/bitcoin.service';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class StatisticPageComponent implements OnInit {
-  marketPrice$: Observable<any>
-  confirmedTransactions$: Observable<any>
+  marketPrice$
+  confirmedTransactions
 
   constructor(private bitcoinService: BitcoinService) { }
 
   async ngOnInit(): Promise<void> {
     this.marketPrice$ = await this.bitcoinService.getMarketPrice()
     
-    this.confirmedTransactions$ = await this.bitcoinService.getConfirmedTransactions()
-    console.log(this.confirmedTransactions$);
+    let res = await this.bitcoinService.getConfirmedTransactions()
+    res.subscribe(values => {
+      
+      this.confirmedTransactions = [...values]
+      console.log(this.confirmedTransactions);
+    });
   }
 }
