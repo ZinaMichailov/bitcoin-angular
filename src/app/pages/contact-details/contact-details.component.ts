@@ -14,11 +14,16 @@ import { ContactService } from '../../services/contact.service';
 })
 export class ContactDetailsComponent implements OnInit {
   loggedinUser: User
-  contact: Contact
+  contact
   movesForContact: any
   subscription: Subscription
 
-  constructor(private contactService: ContactService, private userService: UserService, private route: ActivatedRoute, private router: Router) { }
+  constructor(
+    private contactService: ContactService, 
+    private userService: UserService, 
+    private route: ActivatedRoute, 
+    private router: Router
+  ) { }
 
   ngOnInit(): void {
     // this.subscription = this.route.data.subscribe(data => {

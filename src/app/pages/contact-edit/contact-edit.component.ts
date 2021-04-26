@@ -11,7 +11,7 @@ import { ContactService } from 'src/app/services/contact.service';
   styleUrls: ['./contact-edit.component.scss']
 })
 export class ContactEditComponent implements OnInit {
-  contact: Contact
+  contact
   subscription: Subscription
 
   constructor(private contactService: ContactService, private route: ActivatedRoute,  private router: Router) { }
@@ -23,13 +23,13 @@ export class ContactEditComponent implements OnInit {
       this.contact = contact
     })
 
-    // this.route.data.subscribe(data => {
-    //   if (!Object.keys(data).length) {
-    //     this.contact = this.contactService.getEmptyContact()
-    //   } else {
-    //     this.contact = data.contact
-    //   }
-    // })
+    this.route.data.subscribe(data => {
+      if (!Object.keys(data).length) {
+        this.contact = this.contactService.getEmptyContact()
+      } else {
+        this.contact = data.contact
+      }
+    })
   }
 
   onSaveContact() {

@@ -9,7 +9,7 @@ import { UserService } from 'src/app/services/user.service';
   styleUrls: ['./signup.component.scss']
 })
 export class SignupComponent implements OnInit {
-  loginCred: object = {email: 'puki@gmail.com', password: '1234'}
+  loginCred: object = {email: 'guest@gmail.com', password: 'guest'}
   singupCred: object = this.userService.getEmptySingUpCred()
   loggedinUser: object = this.userService.getLoggedInUser()
   isLogin: boolean = true
