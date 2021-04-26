@@ -19,13 +19,13 @@ export class SignupComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  onLogin() {
-    this.userService.login(this.loginCred)
+  async onLogin() {
+    await this.userService.login(this.loginCred)
     this.router.navigateByUrl('/')
   }
 
-  onSignup() {
-    this.userService.signup(this.singupCred)
+  async onSignup() {
+    await this.userService.signup(this.singupCred)
     this.router.navigateByUrl('/')
   }
 

@@ -15,7 +15,7 @@ import { ContactService } from '../../services/contact.service';
 export class ContactDetailsComponent implements OnInit {
   loggedinUser: User
   contact
-  movesForContact: any
+  movesForContact
   subscription: Subscription
 
   constructor(
@@ -26,14 +26,8 @@ export class ContactDetailsComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    // this.subscription = this.route.data.subscribe(data => {
-    //   this.contact = data.contact
-    // })
-
-    this.subscription = this.route.params.pipe(
-      mergeMap(params => this.contactService.getById(params.id))
-    ).subscribe(contact => {
-      this.contact = contact
+    this.subscription = this.route.data.subscribe(data => {
+      this.contact = data.contact
     })
 
     this.loggedinUser = this.userService.getLoggedInUser()
@@ -41,10 +35,9 @@ export class ContactDetailsComponent implements OnInit {
     this.movesForContact = this.loggedinUser.moves.filter(move => move.toId === this.route.snapshot.params.id)
   }
 
-  onTransfer(ev) {
-    this.userService.addMove(this.contact, ev.target.amount.value)
+  async onTransfer(ev) {
+    await this.userService.addMove(this.contact, ev.target.amount.value)
     ev.target.amount.value = null
-    this.loggedinUser = this.userService.getLoggedInUser()
   }
 
   ngOnDestroy() {

@@ -10,9 +10,7 @@ export class ContactResolverService implements Resolve<any>{
   constructor(private contactService: ContactService) { }
   
   async resolve(route: ActivatedRouteSnapshot){
-    const {id} = route.params
-    console.log(id);
-    
+    const {id} = route.params    
     const contact = await this.contactService.getById(id)
     return contact
 
