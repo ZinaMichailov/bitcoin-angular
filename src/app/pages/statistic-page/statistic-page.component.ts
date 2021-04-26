@@ -1,4 +1,5 @@
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
+import { Observable } from 'rxjs';
 import { BitcoinService } from 'src/app/services/bitcoin.service';
 
 @Component({
@@ -8,13 +9,15 @@ import { BitcoinService } from 'src/app/services/bitcoin.service';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class StatisticPageComponent implements OnInit {
-  marketPrice: Promise<Array<object>>
-  confirmedTransactions: Promise<Array<object>>
+  marketPrice$: Observable<any>
+  confirmedTransactions$: Observable<any>
 
   constructor(private bitcoinService: BitcoinService) { }
 
-  ngOnInit(): void {
-    this.marketPrice = this.bitcoinService.getMarketPrice()
-    this.confirmedTransactions = this.bitcoinService.getConfirmedTransactions()
+  async ngOnInit(): Promise<void> {
+    this.marketPrice$ = await this.bitcoinService.getMarketPrice()
+    
+    this.confirmedTransactions$ = await this.bitcoinService.getConfirmedTransactions()
+    console.log(this.confirmedTransactions$);
   }
 }

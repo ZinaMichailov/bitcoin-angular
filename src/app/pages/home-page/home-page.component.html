@@ -7,7 +7,7 @@
         </div>
         <div class="btc flex-center">
             <img src="../../../assets/img/bitcoin.png" alt="" />
-            <div>BTC: {{rate}}</div>
+            <div>BTC: {{rate$ | async}}</div>
         </div>
         <move-list [moves]="loggedinUser.moves" [isShowTo]="true"></move-list>
     </div>

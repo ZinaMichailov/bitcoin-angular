@@ -3,6 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { GoogleChartsModule } from 'angular-google-charts';
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
 import { ContactFilterComponent } from './cmps/contact-filter/contact-filter.component';
@@ -42,7 +43,8 @@ import { ChartComponent } from './cmps/chart/chart.component';
     BrowserModule,
     FormsModule,
     AppRoutingModule,
-    GoogleChartsModule
+    GoogleChartsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
