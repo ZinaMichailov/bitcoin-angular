@@ -54,6 +54,7 @@ export class ContactService {
       if (a.name.toLocaleLowerCase() < b.name.toLocaleLowerCase()) {
         return -1;
       }
+      
       if (a.name.toLocaleLowerCase() > b.name.toLocaleLowerCase()) {
         return 1;
       }

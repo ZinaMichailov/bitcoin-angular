@@ -1,5 +1,7 @@
+@import "../../../assets/styles/setup/functions";
+
 .move-preview {
-    padding: 12px 0;
+    padding: rem(12px) 0;
 
     :last-child {
         margin: 0;

@@ -1,28 +1,32 @@
+@import "../../../assets/styles/setup/functions";
+@import "../../../assets/styles/setup/variables";
+@import "../../../assets/styles/setup/mixins";
+
 .contact-details {
     align-items: center;
     
     img {
-        width: 200px;
-        margin-block-end: 20px;
+        width: rem(200px);
+        margin-block-end: rem(20px);
         border-radius: 50%;
     }
 
     h3 {
-        margin-block-end: 10px;
+        margin-block-end: rem(10px);
     }
     
     .actions {
-        margin: 30px 0;
+        margin: rem(30px) 0;
         
         img {
-            width: 25px;
+            width: rem(25px);
             cursor: pointer;
         }
     }
 
-    @media screen and (max-width: 400px) {
-		img {
-            width: 100px;
+    @include for-mobile-layout {
+        img {
+            width: rem(100px);
         }
-	}
+    }
 }

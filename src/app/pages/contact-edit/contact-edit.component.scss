@@ -1,37 +1,40 @@
+@import "../../../assets/styles/setup/functions";
+@import "../../../assets/styles/setup/variables";
+
 .contact-edit {
     text-align: center;
-    padding-top: 30px;
+    padding-top: rem(30px);
 
     h1 {
-        margin-block-end: 30px;
+        margin-block-end: rem(30px);
     }
 
     form > * {
-        margin-block-end: 20px;
+        margin-block-end: rem(20px);
         justify-content: center;
     }
 
     label {
-        margin-right: 10px;
+        margin-right: rem(10px);
     }
 
     input {
-        padding: 7px;
+        padding: rem(7px);
         border-radius: 10px;
         border: 1px solid #d8d8d8;
-        width: 220px;
+        width: rem(220px);
     }
 
     .save-btn {
         display: block;
-        margin: 30px auto;
+        margin: rem(30px) auto;
     }
 
     .actions {
-        margin: 30px auto;
+        margin: rem(30px) auto;
 
         img {
-            width: 25px;
+            width: rem(25px);
         }
 
         button {

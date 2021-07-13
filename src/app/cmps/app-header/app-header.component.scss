@@ -1,17 +1,20 @@
+@import '../../../assets/styles/setup/functions';
+@import '../../../assets/styles/setup/variables';
+
 header {
-    background-color:#0077b6;;
-	color: #f0f5f9;
-	padding: 13px 40px;
+    background-color: $clr1;
+	color: $clr2;
+	padding: rem(13px) rem(40px);
 
 	nav {
 		> * {
 			text-decoration: none;
-			color: #f0f5f9;
+			color: $clr2;
 			cursor: pointer;
-			width: 35px;
+			width: rem(35px);
 
 			&:not(:last-child) {
-				margin-right: 30px;
+				margin-right: rem(30px);
 			}
 
 			&:hover {

@@ -1,4 +1,6 @@
+@import "../../../assets/styles/setup/functions";
+
 .contact-list {
 	align-items: center;
-	margin-bottom: 50px;
+	margin-bottom: rem(50px);
 }

@@ -1,13 +1,16 @@
+@import "../../../assets/styles/setup/functions";
+@import "../../../assets/styles/setup/variables";
+
 .moves-list {
 	justify-content: center;
-    background-color: #ebebeb;
+    background-color: $clr6;
     text-align: center;
-    margin-block-end: 20px;
-    border-radius: 5px;
-    padding: 15px 30px;
+    margin-block-end: rem(20px);
+    border-radius: rem(5px);
+    padding: rem(15px) rem(30px);
 
     h3 {
-        padding-block-end: 10px;
+        padding-block-end: rem(10px);
     }
 
     > *:not(:last-child) {

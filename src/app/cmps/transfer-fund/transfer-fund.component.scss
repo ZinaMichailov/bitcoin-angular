@@ -1,47 +1,51 @@
+@import "../../../assets/styles/setup/functions";
+@import "../../../assets/styles/setup/variables";
+@import "../../../assets/styles/setup/mixins";
+
 .transfer-fund {
-  margin: 40px auto;
-  background-color: #008e9b;
-  border-radius: 5px;
+  margin: rem(40px) auto;
+  background-color: $clr5;
+  border-radius: rem(5px);
   padding: 15px 0;
 
   h3 {
     text-align: center;
-    margin-block-end: 20px;
+    margin-block-end: rem(20px);
   }
 
   form {
     text-align: center;
 
     > *:not(:last-child) {
-      margin-inline-end: 10px;
+      margin-inline-end: rem(10px);
     }
 
     input {
-      border-radius: 10px;
-      border: 1px solid #d8d8d8;
-      padding: 5px;
+      border-radius: rem(10px);
+      border: 1px solid $clr4;
+      padding: rem(5px);
       background-color: inherit;
     }
   }
 
-  @media screen and (max-width: 400px) {
+  @include for-mobile-layout {
     h3 {
-      font-size: 15px;
+      font-size: rem(15px);
     }
     
-		form {
+    form {
       display: flex;
       flex-direction: column;
-
+  
       > *:not(:last-child) {
         margin-inline-end: 0;
-        margin-block-end: 15px;
+        margin-block-end: rem(15px);
       }
-
+  
       button {
         width: 40%;
         margin: 0 auto;
       }
     }
-	}
+  }
 }

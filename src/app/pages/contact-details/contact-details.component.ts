@@ -1,11 +1,8 @@
 import { Component, OnInit, EventEmitter, Input, Output } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Observable, Subscription } from 'rxjs';
-import { mergeMap } from 'rxjs/operators';
+import { Subscription } from 'rxjs';
 import { User } from 'src/app/models/user.model';
 import { UserService } from 'src/app/services/user.service';
-import { Contact } from '../../models/contact.model';
-import { ContactService } from '../../services/contact.service';
 
 @Component({
   selector: 'contact-details',
@@ -19,7 +16,6 @@ export class ContactDetailsComponent implements OnInit {
   subscription: Subscription
 
   constructor(
-    private contactService: ContactService, 
     private userService: UserService, 
     private route: ActivatedRoute, 
     private router: Router
@@ -38,6 +34,7 @@ export class ContactDetailsComponent implements OnInit {
   async onTransfer(ev) {
     await this.userService.addMove(this.contact, ev.target.amount.value)
     ev.target.amount.value = null
+    this.router.navigateByUrl('/')
   }
 
   ngOnDestroy() {

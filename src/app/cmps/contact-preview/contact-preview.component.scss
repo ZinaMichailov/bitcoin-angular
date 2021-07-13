@@ -1,9 +1,12 @@
+@import "../../../assets/styles/setup/functions";
+@import "../../../assets/styles/setup/variables";
+
 .contact-preview {
 	align-items: center;
-	margin-block-end: 20px;
-	background-color: #ebebeb;
-	border-radius: 20px;
-	padding: 5px 15px;
+	margin-block-end: rem(20px);
+	background-color: $clr6;
+	border-radius: rem(20px);
+	padding: rem(5px) rem(15px);
 
 	h4 {
 		margin: 0;
@@ -15,7 +18,7 @@
 
 	img {
 		width: 50px;
-        margin-inline-end: 30px;
+        margin-inline-end: rem(30px);
 		border-radius: 50%;
 	}
 }

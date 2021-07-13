@@ -11,7 +11,14 @@
         </div>
         <move-list [moves]="loggedinUser.moves" [isShowTo]="true"></move-list>
     </div>
-    <div *ngIf="!loggedinUser" class="signup-btn">
-        <a routerLink="/signup" class="btn">Login / Sign Up</a>
+    <div *ngIf="!loggedinUser" class="home-page-init flex">
+        <div class="content">
+            <h1>Your gateway to Bitcoin & beyond</h1>
+            <p>The tools and information you need to buy, sell, trade, invest, and spend cryptocurrencies</p>
+            <div class="signup-btn">
+                <a routerLink="/signup" class="btn">Try Now</a>
+            </div>
+        </div>
+        <img class="homepage-svg" src="../../../assets/img/homepage.svg" alt="" />
     </div>
 </section>

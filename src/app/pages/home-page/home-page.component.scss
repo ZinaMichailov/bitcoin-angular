@@ -1,25 +1,90 @@
+@import "../../../assets/styles/setup/functions";
+@import "../../../assets/styles/setup/variables";
+@import "../../../assets/styles/setup/mixins";
+
 .home-page {
+  max-width: rem(1100px);
+  padding: 0 rem(24px);
+  margin: auto;
+  overflow: hidden;
+
   .user-container {
     align-items: center;
-    padding-block-start: 50px;
+    padding-block-start: rem(50px);
 
     > * {
-      margin-block-end: 20px;
+      margin-block-end: rem(20px);
     }
 
     img {
-      margin-inline-end: 10px;
-      width: 30px;
+      margin-inline-end: rem(10px);
+      width: rem(30px);
     }
 
     .btc {
-      margin-block-end: 50px;
+      margin-block-end: rem(50px);
     }
   }
 
-  .signup-btn {
-    display: block;
-    margin: 50px auto;
-    width: 150px;
+  .home-page-init {
+    min-height: 88vh;
+    gap: rem(10px);
+    padding: 0 rem(80px);
+
+    .homepage-svg {
+      max-width: rem(400px);
+      position: relative;
+      bottom: 0;
+      right: 0;
+    }
+
+    .content {
+      padding-top: rem(40px);
+
+      h1 {
+        font-weight: bold;
+        max-width: 17ch;
+        font-size: rem(35px);
+        margin-bottom: rem(20px);
+      }
+
+      p {
+        margin-bottom: rem(25px);
+      }
+    }
+  }
+
+  @include for-mobile-layout {
+    .home-page-init {
+      flex-direction: column-reverse;
+      padding: 0;
+
+      .homepage-svg {
+        max-width: rem(250px);
+        padding-top: rem(20px);
+        margin: 0 auto;
+      }
+
+      .content {
+        padding-top: rem(20px);
+
+        h1 {
+          max-width: none;
+          font-size: rem(26px);
+          margin-bottom: rem(15px);
+          text-align: center;
+        }
+  
+        p {
+          text-align: center;
+        }
+
+        .signup-btn {
+          display: flex;
+          justify-content: center;
+          margin-bottom: rem(20px);
+        }
+      }
+    }
   }
 }

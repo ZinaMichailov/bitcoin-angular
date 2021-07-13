@@ -32,14 +32,14 @@ a {
 }
 
 .btn {
-	background-color: #0077b6;
-	color: #f0f5f9;
-	border: 1px solid #0077b6;
+	background-color: $clr1;
+	color: $clr2;
+	border: 1px solid $clr1;
 	border-radius: 10px;
-	padding: 5px 10px;
+	padding: 7px 18px;
 
 	&:hover {
-		background-color: #f0f5f9;
-		color: #0077b6;
+		background-color: $clr2;
+		color: $clr1;
 	}
 }

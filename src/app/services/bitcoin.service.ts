@@ -23,8 +23,7 @@ export class BitcoinService {
             .pipe(
                 map(res => {
                     const rate = coins * res;
-                    rate.toFixed(6)
-                    storageService.store(this.Rate_KEY, rate);
+                    storageService.store(this.Rate_KEY, rate.toFixed(6));
                     return rate
                 })
             )
@@ -39,22 +38,22 @@ export class BitcoinService {
         let marketPrice = storageService.load(this.Market_Price_KEY)
         if (marketPrice && marketPrice?.length) return of(marketPrice)
 
-        return this.http.get<any>('https://api.blockchain.info/charts/market-price?timespan=5months&format=json&cors=true')
-            .pipe(
-                map(res => {
-                    return res.values.map(({ x, y }) => {
-                        return [(new Date(x * 1000).toLocaleDateString('en-US')), y]
-                    }
-                )},
-                tap(values => storageService.store(this.Market_Price_KEY, values))
-            ))
-        // const { data } = await axios.get(`https://api.blockchain.info/charts/market-price?timespan=5months&format=json&cors=true`)
-        // const values = data.values.map(({x, y}) => {
-        //     return [(new Date(x * 1000).toLocaleDateString('en-US')), y]
-        // })
+        // return this.http.get<any>('https://api.blockchain.info/charts/market-price?timespan=5months&format=json&cors=true')
+        //     .pipe(
+        //         map(res => {
+        //             return res.values.map(({ x, y }) => {
+        //                 return [(new Date(x * 1000).toLocaleDateString('en-US')), y]
+        //             }
+        //         )},
+        //         tap(values => storageService.store(this.Market_Price_KEY, values))
+        //     ))
+        const { data } = await axios.get(`https://api.blockchain.info/charts/market-price?timespan=5months&format=json&cors=true`)
+        const values = data.values.map(({x, y}) => {
+            return [(new Date(x * 1000).toLocaleDateString('en-US')), y]
+        })
 
-        // storageService.store(this.Market_Price_KEY, values)
-        // return values;
+        storageService.store(this.Market_Price_KEY, values)
+        return values;
     }
 
     async getConfirmedTransactions() {

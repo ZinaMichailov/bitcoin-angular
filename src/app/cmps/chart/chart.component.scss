@@ -1,5 +1,8 @@
+@import "../../../assets/styles/setup/functions";
+@import "../../../assets/styles/setup/variables";
+
 .chart {
-    margin: 0 auto 80px;
+    margin: 0 auto rem(80px);
 
     .chart-headline {
         text-align: center;
