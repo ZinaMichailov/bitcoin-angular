@@ -13,7 +13,7 @@ export class ChartComponent implements OnInit {
   @Input() vTitle
 
   options = {
-    colors: ['#008e9b'],
+    colors: ['#8dd6e9'],
     backgroundColor: 'transparent',
     hAxis: {
       title: 'Date'
@@ -24,15 +24,12 @@ export class ChartComponent implements OnInit {
     legend: 'left'
   }
   type = 'AreaChart'
-  width = screen.width * 0.8
+  width = screen.width * 0.95
   height = screen.width * 0.4
-
   constructor() { }
 
   ngOnInit(): void {
     this.options.vAxis.title = this.vTitle
-    
-    console.log('data chart:', this.data);    
   }
 
 }

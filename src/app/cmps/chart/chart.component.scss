@@ -1,10 +1,19 @@
 @import "../../../assets/styles/setup/functions";
 @import "../../../assets/styles/setup/variables";
+@import "../../../assets/styles/setup/mixins";
 
 .chart {
     margin: 0 auto rem(80px);
 
     .chart-headline {
         text-align: center;
+    }
+    
+    @include for-mobile-layout {
+        margin: 0 auto rem(50px);
+
+        .chart-headline {
+            font-size: rem(15px);
+        }
     }
 }

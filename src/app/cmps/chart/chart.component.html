@@ -3,7 +3,7 @@
     <google-chart 
         class="chart" 
         [type]="type"
-        [data]="data" 
+        [data]="data | async" 
         [width]="width" 
         [height]="height"
         [options]="options" 
